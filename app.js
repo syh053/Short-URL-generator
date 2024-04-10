@@ -4,11 +4,13 @@ const app = express()
 const port = 3000
 datas = require("./public/jsons/data.json").test
 
+app.use(express.static("public"))
+
 
 app.engine('.hbs', engine({ extname: '.hbs' }))
 app.set('view engine', '.hbs')
 app.set('views', './views')
-app.use(express.static("public"))
+
 
 
 app.get('/', (req, res) => {
