@@ -4,8 +4,8 @@
   "description": "address_creation",
   "main": "app.js",
   "scripts": {
-    "start" : "node app.js",
-    "dev"   : "nodemon app.js"
+    "start": "node app.js",
+    "dev": "nodemon app.js"
   },
   "keywords": [
     "address_creation"
@@ -13,6 +13,7 @@
   "author": "hua",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "express-handlebars": "^7.1.2"
   }
 }
