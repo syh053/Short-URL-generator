@@ -1,19 +1,10 @@
-//檢查 input 是否有值
-if (values.includes(inputURL)) {
-    data = Object.keys(datas).find(key => datas[key] === inputURL)
-    shortURL = localURL + data
-    res.render('address', { inputURL, shortURL })
-    console.log("有值")
-    console.log(datas)
-} else if (!values.includes(inputURL)) {
-    const { shortURL, result } = randomString(5)
-    datas[result] = inputURL
-    res.render('address', { inputURL, shortURL })
-    console.log("沒值")
-    console.log(datas)
-} else {
-    console.log(datas)
-    res.render('index')
-}
+const button = document.querySelector("#input") 
+const input = document.querySelector(".form-control") 
 
-console.log("123 hi")
+button.addEventListener("submit", event => {
+    // event.preventDefault()
+    if (input.value.trim().length === 0) {
+        alert("不得為空值")
+    }
+    console.log("hihi")
+} )

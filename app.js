@@ -2,7 +2,7 @@ const express = require('express')
 const {engine} = require('express-handlebars')
 const app = express()
 const port = 3000
-const localURL = "http://localhost/url/"
+const localURL = "http://localhost:3000/url/"
 
 
 datas = require("./public/jsons/data.json")
@@ -40,28 +40,22 @@ app.get('/', (req, res) => {
 
 
 
-app.get('/url', (req, res) => {
 
-    const inputURL = req.query.creatURL  
-    const values = Object.values(datas)
-     
+app.get('/url', (req, res) => {
     
-    //檢查 input 是否有值
-    if (values.includes(inputURL)) { 
-        data = Object.keys(datas).find( key => datas[key] === inputURL )
-        shortURL = localURL + data
-        res.render('address', { inputURL, shortURL })
-        console.log("有值")
-        console.log(datas)
-    } else if (inputURL.length && !values.includes(inputURL)) {
+    const inputURL = req.query.creatURL?.trim()
+    
+    if (inputURL && !Object.values(datas).includes(inputURL) ) {
         const { shortURL, result } = randomString(5)
         datas[result] = inputURL
-        res.render('address', { inputURL, shortURL })
-        console.log("沒值")
-        console.log(datas)
+        res.render("address", { inputURL, shortURL })
+    } else if ( Object.values(datas).includes(inputURL) ) {
+        const result = Object.keys(datas).find( key => datas[key] === inputURL )
+        const shortURL = localURL + result
+        res.render("address", { inputURL, shortURL })
     } else {
+        res.render("index", { inputURL })
         console.log(datas)
-        res.render('index')
     }
 })
 
