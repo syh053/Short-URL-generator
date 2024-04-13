@@ -1,0 +1,14 @@
+<div class="text-center mt-5">
+    <h2>Success! Please use this link : </h2>
+    <a class="fs-3 mt-3" href="{{inputURL}}" target="_blank">{{shortURL}}</a>
+    <button type="button" class="btn btn-primary ms-5 mb-2">Copy</button>
+</div>
+
+
+<script>
+    const button = document.querySelector("btn")
+        button.addEventListener("click", () => {
+            console.log("click success")
+            navigator.clipboard.writeText(shortURL)
+        })
+</script>
