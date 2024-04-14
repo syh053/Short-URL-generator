@@ -1,10 +1,12 @@
 const express = require('express')
 const {engine} = require('express-handlebars')
+const fs = require('fs')
 const app = express()
 const port = 3000
 const localURL = "http://localhost:3000/url/"
 
 
+const path = "./public/jsons/data.json"
 datas = require("./public/jsons/data.json")
 
 app.use(express.static("public"))
@@ -57,6 +59,15 @@ app.get('/url', (req, res) => {
         res.render("index", { inputURL })
         console.log(datas)
     }
+
+    // 將修改後的對象轉換成字符串並寫回檔案
+    fs.writeFile(path, JSON.stringify(datas, null, 2), 'utf8', (err) => {
+        if (err) {
+            console.error('寫入檔案失敗：', err);
+            return;
+            }
+        console.log('檔案已成功更新');
+    }) 
 })
 
 
