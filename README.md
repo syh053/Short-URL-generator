@@ -1,5 +1,8 @@
 # 短網址產生器
 這是使用 express 框架和 express-handlebars 打造的短網址產生器
+![image](https://github.com/syh053/Short-URL-generator/blob/main/photo/index.png)
+
+___
 
 ## 產品功能 :
 + 輸入原始網址並送出表單之後，畫面會回傳格式化後的短網址。
