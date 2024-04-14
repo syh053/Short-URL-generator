@@ -41,7 +41,7 @@ ___
 
 4. 設置 package.json 檔案
 
-![image](https://github.com/syh053/restaurants/blob/main/image/setting%20package.png)
+![image](https://github.com/syh053/Short-URL-generator/blob/main/photo/setting%20package.png)
 
 ___
 
