@@ -73,9 +73,15 @@ app.get('/url', (req, res) => {
 
 app.get('/url/:id', (req, res) => {
     id = req.params.id
-    const keys = Object.keys(datas)
-    if (keys.includes(id)) {  
+
+    // const keys = Object.keys(datas)  (X) 較不佳的寫法
+    //陣列的include方式是一個一個查找，當資料量越大時，這個搜尋就會越耗能，
+    // 直接用datas[id]看是否有存在的值即可，物件的object是幾乎是瞬間的直接取得，像是直接從一群人中直接點名。
+
+    if (datas[id]) {  
         res.redirect(datas[id])
+    } else {
+        res.send("輸入的網址無效，請重返上一頁。")
     }
 })  
 
